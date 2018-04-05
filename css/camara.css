@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css?family=Chicle');
+body{
+	margin:0;
+	padding:0;
+	justify-content:center;
+	align-items: center;
+	display: flex;
+	height:100vh;
+	background: #4C3D3DBF;
+}
+
+
+
+.camara, .panel{
+	border: 1px solid #F8F8FF;
+	width:450px;
+	height:450px;
+	border-radius:20%;
+	background: #F8F8FF;
+	position:relative;
+}
+.camara{
+	transition: 1s;
+	animation-name: camara, rebote;
+	animation-duration: 2s, 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	z-index: 2;
+}
+
+.camara::after{
+	content: " nokin ";
+	font-size: 35px;
+	font-family: 'Chicle', cursive;
+	/*transform: translateY(10px);*/
+	position: absolute;
+	top: 8px;
+	left: 54px;
+}
+
+
+.flash{
+	position: absolute;
+	background:	#F8F8FF;
+	border:1px solid #F8F8FF;
+	width:50px;
+	height:75px;
+	left: 38px;
+	top: -42px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	z-index: -1;
+}
+
+.flash::before{
+	content: " ";
+	border:1px solid #F8F8FF;
+	width: 40px;
+	height: 14px;
+	border-radius: 10px;
+	animation-name: flash;
+	position: absolute;
+	top: 6px;
+	left: 5px;
+	background: black;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+.flash::after{
+	content: " ";
+	border: 1px solid #EAE6E6;
+	width: 35px;
+	position: absolute;
+	top: 13px;
+	left: 8px;
+}
+
+.camara .boton{
+	position:absolute;
+	border:1px solid #2e3e4f;
+	width:54px;
+	height:36px;
+	border-radius: 15px;
+	box-shadow: 0px 4px 0px rgba(0,0,0,.4);
+	background: #2e3e4f;
+	transform: translate(324px, 25px);
+	animation-duration: .5s;
+	animation-delay: .5s;
+	animation-name: boton;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+.boton:hover{
+	cursor: pointer;
+	animation-play-state: paused;
+	margin-top:2px;
+	box-shadow: 0px 1px 0px rgba(0,0,0,.4);
+}
+
+
+.colors{
+	background: rgba(108, 102, 93, 1);
+	border-top: 10px solid rgba(153, 153, 102, .3);
+	width:450px;
+	height:248px;
+	transform: translateY(91px);
+	border-bottom: 10px solid rgba(153, 153, 102, .3);
+}
+
+
+.lente{
+	position: relative;
+	border:18px solid #a0a97f;
+	background: #111111E9;
+	border-radius: 50%;
+	width:320px;
+	height: 320px;
+	transform: translate(49px, -221px);
+	box-shadow:  0 5px  rgba(0,0,0,.4);
+}
+
+.lente::before{
+	content: "";
+	border:18px solid #978585E7;
+	width: 200px;
+	height: 200px;
+	background: #4C4C4CCB;
+	border-radius: 50%;
+	position: absolute;
+	transform: translate(44px, 43px);
+}
+
+.lente::after{
+	content: "";
+	border:25px solid #353535E9;
+	width: 80px;
+	height: 80px;
+	background: #C6C6C6CB;
+	border-radius: 50%;
+	position: absolute;
+	transform: translate(98px, 97px);
+}
+
+
+
+.panel{
+	transform: rotate(-90deg);
+	box-shadow: 0 5px 0 rgba(0, 0, 0, .3);
+	position:absolute;
+	transition: 1s;
+	animation-name: foto, rebote;
+	animation-duration: 2s, 2s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+
+}
+
+.foto{
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  top: 45px;
+  left: 116px;
+  border: 10px solid #C0C0C0FF;
+	border-radius: 50%;
+	background: white;
+}
+
+.retrato{
+	font-size: 35px;
+	font-family: 'Chicle', cursive;
+	position: absolute;
+	transform: translate(173px, 98px);
+}
+
+.camara.active{
+	margin-left: -500px;
+
+}
+
+.panel.active{
+;
+  transform-origin: 0% 100%;
+  transform:rotate(0deg);
+  transition: 1s;
+  margin-left: 400px;
+}
+
+
+/*animaciones*/
+
+
+@keyframes flash {
+0%{
+	opacity: 0;
+}
+100%{
+	background: white;
+	opacity: 1;
+
+}
+}
+
+@keyframes boton{
+	0%{
+		margin-top: 0;
+	}
+	100%{
+		margin-top: 2px;
+		box-shadow: 0px 1px 0px rgba(0,0,0,.4);
+}
+}
+
+@keyframes camara{
+	0%{
+		transform: translateY(-600px);
+		/*margin-left: -450px*/
+	}
+	30%, 50%{
+		/*transform: rotate(-20deg);*/
+	}
+
+	60%, 70%{
+		transform: translateY(-50px);
+	}
+
+
+	to{
+		transform: translateY(0);
+
+	}
+}
+
+
+@keyframes foto{
+	0%{
+		transform: translateY(-600px);
+	}
+
+
+	30%, 50%{
+		/*transform: rotate(-20deg);*/
+	}
+
+	60%, 70%{
+		transform: translateY(-50px);
+	}
+
+	 to{
+		transform: translateY(0);
+
+	}
+
+}
+
+
+@keyframes rebote{
+ 30%, 50%{
+ 	transform: rotate(-20deg);
+ }
+
+ 	80%, 90%{
+		transform: rotate(20deg);
+	}
+
+}
+
